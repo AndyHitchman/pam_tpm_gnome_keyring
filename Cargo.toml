@@ -1,0 +1,21 @@
+[package]
+name = "pam_tpm_gnome_keyring"
+version = "0.1.0"
+edition = "2024"
+description = "PAM module that unlocks the GNOME keyring at login using a TPM2-protected passphrase, enabling passwordless login with a hardware security key (e.g. YubiKey)."
+license = "MIT"
+repository = "https://github.com/hitchman/pam-tpm-gnome-keyring"
+readme = "README.md"
+keywords = ["pam", "tpm2", "gnome-keyring", "yubikey", "clevis"]
+categories = ["authentication"]
+
+[lib]
+name = "pam_tpm_gnome_keyring"
+crate-type = ["cdylib"]
+
+[[bin]]
+name = "gkd-unlock"
+path = "src/bin/gkd-unlock.rs"
+
+[dependencies]
+libc = "0.2"
